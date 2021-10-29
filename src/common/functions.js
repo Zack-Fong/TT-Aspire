@@ -68,6 +68,13 @@ export function postRequest(url, header, parameters, uploadFile) {
     });
 }
 
+export function getStandardHeader() {
+    return {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    };
+}
+
 export function isSuccessApiCall(httpStatusCode) {
     return API_STATUS_CODES.SUCCESSFUL_CODE.includes(httpStatusCode);
 }

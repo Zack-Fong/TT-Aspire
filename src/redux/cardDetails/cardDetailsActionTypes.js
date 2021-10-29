@@ -1,0 +1,1 @@
+export const SAVE_CARD_DETAILS = "SAVE_CARD_DETAILS";

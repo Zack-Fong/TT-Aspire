@@ -12,7 +12,9 @@ export const API_STATUS_CODES = {
     NOT_FOUND_CODE: [404]
 }
 export const API_PATHS = {
-
+    BASE: "/api",
+    GET_DETAILS: "/getDetails",
+    SET_LIMIT: "/setLimit"
 }
 
 export const TEXT_CONSTANTS = {

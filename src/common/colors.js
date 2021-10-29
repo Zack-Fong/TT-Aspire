@@ -1,3 +1,12 @@
 export const COLORS = {
-    RED: '#FF0000'
+    RED: '#FF0000',
+
+    LIGHT_GREEN: "#01D167",
+
+    LIGHT_GRAY: "#DDDDDD",
+
+    DARK_BLUE: "#0C365A",
+
+    EERIE_BLACK: "#222222",
+    DARK_COBALT_BLUE: "#25345F"
 }

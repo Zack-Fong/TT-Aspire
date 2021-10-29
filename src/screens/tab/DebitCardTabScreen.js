@@ -1,9 +1,10 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import ActivityIndicatorComponent from '../component/ActivityIndicator';
+import ActivityIndicatorComponent from '../../component/ActivityIndicator';
+import { COLORS } from '../../common/colors';
 
-class DebitCardScreen extends React.Component {
+class DebitCardTabScreen extends React.Component {
     constructor(props) {
         super(props);
 
@@ -18,7 +19,7 @@ class DebitCardScreen extends React.Component {
 
     render() {
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.DARK_BLUE }}>
                 <ActivityIndicatorComponent
                     isShow={this.state.isLoading}
                 />
@@ -26,4 +27,4 @@ class DebitCardScreen extends React.Component {
         )
     }
 }
-export default DebitCardScreen;
+export default DebitCardTabScreen;
