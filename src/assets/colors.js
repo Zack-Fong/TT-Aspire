@@ -2,8 +2,11 @@ export const COLORS = {
     RED: '#FF0000',
 
     LIGHT_GREEN: "#01D167",
+    LIGHT_GREEN_SHADE: "#E5FAF0",
 
     LIGHT_GRAY: "#DDDDDD",
+    GRAY: "#EEEEEE",
+    TEXT_LIGHT_GRAY: "#22222266",
 
     DARK_BLUE: "#0C365A",
 

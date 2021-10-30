@@ -4,12 +4,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeTabScreen from "../screens/tab/HomeTabScreen";
 import PaymentsTabScreen from '../screens/tab/PaymentsTabScreen';
-import DebitCardTabScreen from '../screens/tab/DebitCardTabScreen';
 import CreditTabScreen from "../screens/tab/CreditTabScreen";
 import ProfileTabScreen from "../screens/tab/ProfileTabScreen";
+import DebitCardTabScreen from '../screens/tab/DebitCardTabScreen';
 
 import { images } from "../assets/assets";
-import { COLORS } from "../common/colors";
+import { COLORS } from "../assets/colors";
+
+import { NAVIGATORS_SCREEN_NAME } from '../common/constants';
+import { isEqual } from "../common/functions";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,20 +20,20 @@ class TabNavigator extends React.PureComponent {
     render() {
         return (
             <Tab.Navigator
-                initialRouteName={"Debit Card"}
+                initialRouteName={NAVIGATORS_SCREEN_NAME.TAB.DEBIT_CARD}
                 screenOptions={({ route }) => ({
                     tabBarIcon: () => {
-                        let iconName;
+                        let iconName = "";
 
-                        if (route.name === 'Home') {
+                        if (isEqual(route.name, NAVIGATORS_SCREEN_NAME.TAB.HOME)) {
                             iconName = images.homeNotSelectedTabIcon;
-                        } else if (route.name === 'Debit Card') {
+                        } else if (isEqual(route.name, NAVIGATORS_SCREEN_NAME.TAB.DEBIT_CARD)) {
                             iconName = images.debitCardSelectedTabIcon;
-                        } else if (route.name === 'Payments') {
+                        } else if (isEqual(route.name, NAVIGATORS_SCREEN_NAME.TAB.PAYMENTS)) {
                             iconName = images.paymentsNotSelectedTabIcon;
-                        } else if (route.name === 'Credit') {
+                        } else if (isEqual(route.name, NAVIGATORS_SCREEN_NAME.TAB.CREDIT)) {
                             iconName = images.creditNotSelectedTabIcon;
-                        } else if (route.name === 'Profile') {
+                        } else if (isEqual(route.name, NAVIGATORS_SCREEN_NAME.TAB.PROFILE)) {
                             iconName = images.profileNotSelectedTabIcon;
                         }
 
@@ -39,29 +42,30 @@ class TabNavigator extends React.PureComponent {
                     },
                     tabBarActiveTintColor: COLORS.LIGHT_GREEN,
                     tabBarInactiveTintColor: COLORS.LIGHT_GRAY,
+
                     headerShown: false
                 })}
             >
-                <Tab.Screen name="Home" component={HomeTabScreen} listeners={{
+                <Tab.Screen name={NAVIGATORS_SCREEN_NAME.TAB.HOME} component={HomeTabScreen} listeners={{
                     tabPress: e => {
                         // Prevent default action
                         e.preventDefault();
                     }
                 }} />
-                <Tab.Screen name="Debit Card" component={DebitCardTabScreen} />
-                <Tab.Screen name="Payments" component={PaymentsTabScreen} listeners={{
+                <Tab.Screen name={NAVIGATORS_SCREEN_NAME.TAB.DEBIT_CARD} component={DebitCardTabScreen} />
+                <Tab.Screen name={NAVIGATORS_SCREEN_NAME.TAB.PAYMENTS} component={PaymentsTabScreen} listeners={{
                     tabPress: e => {
                         // Prevent default action
                         e.preventDefault();
                     }
                 }} />
-                <Tab.Screen name="Credit" component={CreditTabScreen} listeners={{
+                <Tab.Screen name={NAVIGATORS_SCREEN_NAME.TAB.CREDIT} component={CreditTabScreen} listeners={{
                     tabPress: e => {
                         // Prevent default action
                         e.preventDefault();
                     }
                 }} />
-                <Tab.Screen name="Profile" component={ProfileTabScreen} listeners={{
+                <Tab.Screen name={NAVIGATORS_SCREEN_NAME.TAB.PROFILE} component={ProfileTabScreen} listeners={{
                     tabPress: e => {
                         // Prevent default action
                         e.preventDefault();

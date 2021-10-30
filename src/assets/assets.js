@@ -1,4 +1,6 @@
 export const images = {
+    backArrow: require("../assets/images/backArrow.png"),
+
     greenLogo: require("../assets/images/greenLogo.png"),
     greenLogo2x: require("../assets/images/greenLogo2x.png"),
     greenLogo3x: require("../assets/images/greenLogo3x.png"),

@@ -1,4 +1,4 @@
-import { TIMEOUT_MILLISECONDS, API_STATUS_CODES } from './constants';
+import { TIMEOUT_MILLISECONDS, API_STATUS_CODES, CURRENCY_SYMBOLS } from './constants';
 
 export function getRequest(url, header, parameters) {
     const abortController = new AbortController();
@@ -128,4 +128,49 @@ export function capitalizeString(string) {
     }
     // Directly return the joined string
     return splitStr.join(' ');
+}
+
+export function getCurrencySymbolFromCurrencyCode(currencyCode) {
+    let currencySymbol = "";
+
+    switch (currencyCode) {
+        case "SGD":
+            currencySymbol = CURRENCY_SYMBOLS.SINGAPORE;
+            break;
+        default:
+            currencySymbol = CURRENCY_SYMBOLS.DEFAULT;
+    }
+    return currencySymbol;
+}
+
+export function formatNumberIntoMoney(number, currencyCode, currencyDisplay) {
+    let money = "";
+
+    if (!isNumberEmpty(number)) {
+        if (currencyDisplay) {
+            money = new Intl.NumberFormat(undefined, {
+                style: 'currency',
+                currency: currencyCode,
+                maximumFractionDigits: 0,
+                minimumFractionDigits: 0,
+            }).format(number)
+        } else {
+            money = new Intl.NumberFormat(undefined, {
+                style: 'currency',
+                currency: currencyCode,
+                currencyDisplay: "code",
+                maximumFractionDigits: 0,
+                minimumFractionDigits: 0,
+            }).format(number).replace(currencyCode, "")
+        }
+    }
+    return (money)
+}
+
+export function convertFractionToDecimal(numerator, denominator) {
+    if (!isNumberEmpty(numerator) && numerator > 0 && !isNumberEmpty(denominator) && denominator > 0) {
+        return Number((numerator / denominator).toFixed(2));
+    } else {
+        return 0;
+    }
 }
