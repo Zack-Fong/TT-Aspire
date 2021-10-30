@@ -1,3 +1,7 @@
+import { StyleSheet } from "react-native";
+
+import { COLORS } from "./colors";
+
 export const TIMEOUT_MILLISECONDS = 30000;  //30 seconds
 export const INTERVAL_MILLISECONDS = {
     CHECK_PROMISES_DONE: 200,
@@ -16,6 +20,24 @@ export const API_PATHS = {
     GET_DETAILS: "/getDetails",
     SET_LIMIT: "/setLimit"
 }
+
+export const defaultStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: COLORS.DARK_BLUE
+    },
+    scrollView: {
+        flex: 1,
+        backgroundColor: COLORS.DARK_BLUE
+    },
+    scrollViewChildren: {
+        width: '100%',
+        height: "100%",
+        backgroundColor: "white",
+        borderTopRightRadius: 50,
+        borderTopLeftRadius: 50
+    }
+});
 
 export const TEXT_CONSTANTS = {
     UNABLE_TO_FETCH: "Experiencing network connectivity issues.",

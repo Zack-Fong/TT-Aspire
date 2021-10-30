@@ -1,8 +1,6 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import ActivityIndicatorComponent from '../../component/ActivityIndicator';
-import { COLORS } from '../../common/colors';
+import ScrollViewComponent from '../../component/ScrollView';
 
 class DebitCardTabScreen extends React.Component {
     constructor(props) {
@@ -19,11 +17,8 @@ class DebitCardTabScreen extends React.Component {
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.DARK_BLUE }}>
-                <ActivityIndicatorComponent
-                    isShow={this.state.isLoading}
-                />
-            </SafeAreaView>
+            <ScrollViewComponent isLoading={this.state.isLoading}>
+            </ScrollViewComponent>
         )
     }
 }

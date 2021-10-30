@@ -1,7 +1,6 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
 
-import ActivityIndicatorComponent from '../component/ActivityIndicator';
+import ScrollViewComponent from '../component/ScrollView';
 
 class SetWeeklySpendingLimitScreen extends React.Component {
     constructor(props) {
@@ -18,11 +17,8 @@ class SetWeeklySpendingLimitScreen extends React.Component {
 
     render() {
         return (
-            <SafeAreaView>
-                <ActivityIndicatorComponent
-                    isShow={this.state.isLoading}
-                />
-            </SafeAreaView>
+            <ScrollViewComponent spendingLimit isLoading={this.state.isLoading}>
+            </ScrollViewComponent>
         )
     }
 }
